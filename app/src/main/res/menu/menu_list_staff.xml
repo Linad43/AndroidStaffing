@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/exit"
+        android:orderInCategory="50"
+        android:title="@string/exit"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sort"
+        android:orderInCategory="50"
+        android:title="@string/sort"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/toFirstName"
+                android:orderInCategory="50"
+                android:title="@string/toFirstName"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/toSecondName"
+                android:orderInCategory="50"
+                android:title="@string/toSecondName"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/toAge"
+                android:orderInCategory="50"
+                android:title="@string/toAge"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/toRole"
+                android:orderInCategory="50"
+                android:title="@string/toRole"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

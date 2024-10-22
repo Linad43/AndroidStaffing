@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AndroidStaffing</string>
+    <string name="listStaff">Лист персонала</string>
+    <string name="addPerson">Добавить работника</string>
+    <string name="listRole">Изменить лист должностей</string>
+    <string name="exit">Выход</string>
+    <string name="secondName">Фамилия</string>
+    <string name="firstName">Имя</string>
+    <string name="age">Возраст</string>
+    <string name="role">Должность</string>
+    <string name="addRole">Добавить должность</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="toFirstName">по Имени</string>
+    <string name="toSecondName">по Фамилии</string>
+    <string name="toAge">по Возрасту</string>
+    <string name="toRole">по Должности</string>
+    <string name="sort">Сортировка</string>
+    <string name="back">Назад</string>
+    <string name="enterRole">Введите должность</string>
+</resources>
