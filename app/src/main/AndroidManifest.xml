@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AndroidStaffing"
         tools:targetApi="31">
         <activity
+            android:name=".activity.DataBaseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ListRole"
             android:exported="false" />
         <activity

@@ -14,17 +14,20 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.androidstaffing.R
+import com.example.androidstaffing.data.DBHelper
 import com.example.androidstaffing.data.EnumActivity
 import com.example.androidstaffing.model.Person
 
 class MainActivity : AppCompatActivity() {
 
+    private val db = DBHelper(this, null)
     private var listStaff = arrayListOf<Person>()
     private var listRoles = arrayListOf<String>()
     private lateinit var toolbar: Toolbar
     private lateinit var listStaffBTN: Button
     private lateinit var addPersonBTN: Button
     private lateinit var redactListRolesBTN: Button
+    private lateinit var databaseBTN:Button
     private lateinit var exitBTN: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +70,11 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, EnumActivity.AddPerson.ordinal)
         }
 
+        databaseBTN.setOnClickListener {
+            val intent = Intent(this, DataBaseActivity::class.java)
+            startActivityForResult(intent, EnumActivity.DataBaseActivity.ordinal)
+        }
+
         exitBTN.setOnClickListener {
             finishAffinity()
         }
@@ -89,10 +97,12 @@ class MainActivity : AppCompatActivity() {
         listStaffBTN = findViewById(R.id.listStaffBTN)
         addPersonBTN = findViewById(R.id.addPersonBTN)
         redactListRolesBTN = findViewById(R.id.redactListRolesBTN)
+        databaseBTN = findViewById(R.id.databaseBTN)
         exitBTN = findViewById(R.id.exitBTN)
 
         setSupportActionBar(toolbar)
 
+        listStaff = db.getListPersons()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -118,6 +128,7 @@ class MainActivity : AppCompatActivity() {
                     val person =
                         data?.extras?.getParcelable(Person::class.java.simpleName) as Person?
                     listStaff.add(person!!)
+                    db.addPerson(person)
                     Toast.makeText(
                         this,
                         "Сотрудник добавлен",
@@ -132,12 +143,19 @@ class MainActivity : AppCompatActivity() {
                         Person::class.java.simpleName,
                         Person::class.java
                     ) as ArrayList<Person>
+                    db.addListPersons(listStaff)
                 }
             }
 
             EnumActivity.ListRole.ordinal->{
                 if (resultCode==Activity.RESULT_OK){
                     listRoles = data?.getStringArrayListExtra("roles")!!
+                }
+            }
+
+            EnumActivity.DataBaseActivity.ordinal->{
+                if (resultCode==Activity.RESULT_OK){
+                    listStaff = db.getListPersons()
                 }
             }
         }

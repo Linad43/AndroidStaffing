@@ -4,5 +4,6 @@ enum class EnumActivity {
     AddPerson,
     ListRole,
     ListStaff,
-    MainActivity
+    MainActivity,
+    DataBaseActivity
 }

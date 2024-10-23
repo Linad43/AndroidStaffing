@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">AndroidStaffing</string>
-    <string name="listStaff">Лист персонала</string>
+    <string name="listStaff">Список персонала</string>
     <string name="addPerson">Добавить работника</string>
-    <string name="listRole">Изменить лист должностей</string>
     <string name="exit">Выход</string>
     <string name="secondName">Фамилия</string>
     <string name="firstName">Имя</string>
@@ -19,4 +18,7 @@
     <string name="back">Назад</string>
     <string name="enterRole">Введите должность</string>
     <string name="notEmpty">Поле не может быть пустым</string>
+    <string name="clearDatabase">Очистить базу данных</string>
+    <string name="listRole">Список должностей</string>
+    <string name="database">База данных</string>
 </resources>
