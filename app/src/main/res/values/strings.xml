@@ -18,4 +18,5 @@
     <string name="sort">Сортировка</string>
     <string name="back">Назад</string>
     <string name="enterRole">Введите должность</string>
+    <string name="notEmpty">Поле не может быть пустым</string>
 </resources>

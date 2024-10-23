@@ -1,5 +1,6 @@
 package com.example.androidstaffing.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -19,13 +20,14 @@ import com.example.androidstaffing.model.Person
 class AddPerson : AppCompatActivity() {
 
     private var listRoles = arrayListOf<String>()
-    private lateinit var toolbar:Toolbar
-    private lateinit var secondNameET:EditText
-    private lateinit var firstNameET:EditText
-    private lateinit var ageNameET:EditText
-    private lateinit var roleSPN:Spinner
-    private lateinit var saveBTN:Button
-    private lateinit var cancelBTN:Button
+    private lateinit var toolbar: Toolbar
+    private lateinit var secondNameET: EditText
+    private lateinit var firstNameET: EditText
+    private lateinit var ageET: EditText
+    private lateinit var roleSPN: Spinner
+    private lateinit var saveBTN: Button
+    private lateinit var cancelBTN: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,16 +42,18 @@ class AddPerson : AppCompatActivity() {
         init()
 
         saveBTN.setOnClickListener {
-            val person = Person(
-                secondNameET.text.toString(),
-                firstNameET.text.toString(),
-                ageNameET.text.toString().toInt(),
-                roleSPN.selectedItem.toString()
-            )
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(Person::class.java.simpleName, person)
-            setResult(RESULT_OK, intent)
-            finish()
+            if (checkAllIsNotEmpty()) {
+                val person = Person(
+                    secondNameET.text.toString(),
+                    firstNameET.text.toString(),
+                    ageET.text.toString().toInt(),
+                    roleSPN.selectedItem.toString()
+                )
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra(Person::class.java.simpleName, person)
+                setResult(RESULT_OK, intent)
+                finish()
+            }
         }
 
         cancelBTN.setOnClickListener {
@@ -58,11 +62,12 @@ class AddPerson : AppCompatActivity() {
         }
 
     }
-    private fun init(){
+
+    private fun init() {
         toolbar = findViewById(R.id.toolbar)
         secondNameET = findViewById(R.id.secondName)
         firstNameET = findViewById(R.id.firstName)
-        ageNameET = findViewById(R.id.age)
+        ageET = findViewById(R.id.age)
         roleSPN = findViewById(R.id.role)
         saveBTN = findViewById(R.id.save)
         cancelBTN = findViewById(R.id.cancel)
@@ -77,6 +82,28 @@ class AddPerson : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         roleSPN.adapter = adapter
     }
+
+    @SuppressLint("ResourceAsColor")
+    private fun checkAllIsNotEmpty(): Boolean {
+        var flag = true
+        if (secondNameET.text.isEmpty()) {
+            secondNameET.setHint(R.string.notEmpty)
+            secondNameET.setHintTextColor(R.color.red)
+            flag = false
+        }
+        if (firstNameET.text.isEmpty()) {
+            firstNameET.setHint(R.string.notEmpty)
+            firstNameET.setHintTextColor(R.color.red)
+            flag = false
+        }
+        if (ageET.text.isEmpty()) {
+            ageET.setHint(R.string.notEmpty)
+            ageET.setHintTextColor(R.color.red)
+            flag = false
+        }
+        return flag
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
