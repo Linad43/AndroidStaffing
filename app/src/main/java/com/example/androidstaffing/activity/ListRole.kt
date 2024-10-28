@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.androidstaffing.R
-import com.example.androidstaffing.servise.MyAlertPerson
 import com.example.androidstaffing.servise.MyAlertRoles
 import com.example.androidstaffing.servise.Removable
 
@@ -64,7 +63,7 @@ class ListRole : AppCompatActivity(), Removable {
         }
 
         listRoleLV.onItemClickListener =
-            AdapterView.OnItemClickListener{ parent, viev, position, id ->
+            AdapterView.OnItemClickListener { parent, viev, position, id ->
                 val role = adapter.getItem(position)
                 val dialog = MyAlertRoles()
                 val args = Bundle()

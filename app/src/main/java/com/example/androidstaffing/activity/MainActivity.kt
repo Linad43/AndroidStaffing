@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var listStaffBTN: Button
     private lateinit var addPersonBTN: Button
     private lateinit var redactListRolesBTN: Button
-    private lateinit var databaseBTN:Button
+    private lateinit var databaseBTN: Button
     private lateinit var exitBTN: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -147,14 +147,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            EnumActivity.ListRole.ordinal->{
-                if (resultCode==Activity.RESULT_OK){
+            EnumActivity.ListRole.ordinal -> {
+                if (resultCode == Activity.RESULT_OK) {
                     listRoles = data?.getStringArrayListExtra("roles")!!
                 }
             }
 
-            EnumActivity.DataBaseActivity.ordinal->{
-                if (resultCode==Activity.RESULT_OK){
+            EnumActivity.DataBaseActivity.ordinal -> {
+                if (resultCode == Activity.RESULT_OK) {
                     listStaff = db.getListPersons()
                 }
             }

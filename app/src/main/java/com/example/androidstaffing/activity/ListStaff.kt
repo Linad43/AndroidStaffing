@@ -22,10 +22,10 @@ import com.example.androidstaffing.servise.Removable
 class ListStaff : AppCompatActivity(), Removable {
 
     private var listStaff = arrayListOf<Person>()
-    private lateinit var adapter:PersonAdapter
+    private lateinit var adapter: PersonAdapter
     private lateinit var toolbar: Toolbar
-    private lateinit var listStaffLV:ListView
-    private lateinit var backBTN:Button
+    private lateinit var listStaffLV: ListView
+    private lateinit var backBTN: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,13 +41,14 @@ class ListStaff : AppCompatActivity(), Removable {
 
         backBTN.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(Person::class.java.simpleName, listStaff)
+            //intent.putExtra(Person::class.java.simpleName, listStaff)
+            intent.putParcelableArrayListExtra(Person::class.java.simpleName, listStaff)
             setResult(RESULT_OK, intent)
             finish()
         }
 
         listStaffLV.onItemClickListener =
-            AdapterView.OnItemClickListener{ parent, viev, position, id ->
+            AdapterView.OnItemClickListener { parent, viev, position, id ->
                 val person = adapter.getItem(position)
                 val dialog = MyAlertPerson()
                 val args = Bundle()
@@ -57,6 +58,7 @@ class ListStaff : AppCompatActivity(), Removable {
             }
 
     }
+
     @SuppressLint("NewApi")
     private fun init() {
         toolbar = findViewById(R.id.toolbar)
@@ -78,28 +80,30 @@ class ListStaff : AppCompatActivity(), Removable {
             R.id.exit -> {
                 finishAffinity()
             }
-            R.id.toFirstName->{
+
+            R.id.toFirstName -> {
                 listStaff.sortBy { it.firstName }
                 adapter.notifyDataSetChanged()
             }
 
-            R.id.toSecondName->{
+            R.id.toSecondName -> {
                 listStaff.sortBy { it.secondName }
                 adapter.notifyDataSetChanged()
             }
 
-            R.id.toAge->{
+            R.id.toAge -> {
                 listStaff.sortBy { it.age }
                 adapter.notifyDataSetChanged()
             }
 
-            R.id.toRole->{
+            R.id.toRole -> {
                 listStaff.sortBy { it.role }
                 adapter.notifyDataSetChanged()
             }
         }
         return true
     }
+
     override fun remove(element: Any) {
         adapter.remove(element as Person)
     }
