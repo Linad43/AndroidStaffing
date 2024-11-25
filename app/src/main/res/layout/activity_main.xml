@@ -11,44 +11,32 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/app_name"
-        android:background="@color/violet"/>
+        style="@style/style_toolbar"
+        app:title="@string/app_name" />
 
     <Button
         android:id="@+id/listStaffBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        style="@style/style_button"
         android:text="@string/listStaff" />
 
     <Button
         android:id="@+id/addPersonBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        style="@style/style_button"
         android:text="@string/addPerson" />
 
     <Button
         android:id="@+id/redactListRolesBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        style="@style/style_button"
         android:text="@string/listRole" />
 
     <Button
         android:id="@+id/databaseBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        style="@style/style_button"
         android:text="@string/database" />
 
     <Button
         android:id="@+id/exitBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        style="@style/style_button"
         android:text="@string/exit" />
 
 </LinearLayout>

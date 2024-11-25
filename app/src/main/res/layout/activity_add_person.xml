@@ -11,9 +11,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/violet"
+        style="@style/style_toolbar"
         app:title="@string/app_name" />
 
     <LinearLayout
@@ -22,18 +20,12 @@
         android:padding="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/secondName"
-            android:textSize="20sp" />
+            style="@style/style_text_view"
+            android:text="@string/secondName" />
 
         <EditText
             android:id="@+id/secondName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textSize="20sp" />
+            style="@style/style_edit_text" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,18 +34,12 @@
         android:padding="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/firstName"
-            android:textSize="20sp" />
+            style="@style/style_text_view"
+            android:text="@string/firstName" />
 
         <EditText
             android:id="@+id/firstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textSize="20sp" />
+            style="@style/style_edit_text" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,19 +48,13 @@
         android:padding="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/age"
-            android:textSize="20sp" />
+            style="@style/style_text_view"
+            android:text="@string/age" />
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:layout_margin="5dp"
-            android:textSize="20sp" />
+            style="@style/style_edit_text"
+            android:inputType="number" />
     </LinearLayout>
 
     <LinearLayout
@@ -83,16 +63,14 @@
         android:padding="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/role"
-            android:textSize="20sp" />
+            style="@style/style_text_view"
+            android:text="@string/role" />
 
         <Spinner
             android:id="@+id/role"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="5dp" />
     </LinearLayout>
 
@@ -103,16 +81,14 @@
 
         <Button
             android:id="@+id/save"
+            style="@style/style_button"
             android:layout_columnWeight="1"
-            android:layout_margin="10dp"
-            android:text="@string/save"
-            android:textSize="20sp" />
+            android:text="@string/save" />
 
         <Button
             android:id="@+id/cancel"
+            style="@style/style_button"
             android:layout_columnWeight="1"
-            android:layout_margin="10dp"
-            android:text="@string/cancel"
-            android:textSize="20sp" />
+            android:text="@string/cancel" />
     </GridLayout>
 </LinearLayout>

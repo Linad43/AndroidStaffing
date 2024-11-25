@@ -11,9 +11,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/violet"
+        style="@style/style_toolbar"
         app:title="@string/app_name" />
 
     <LinearLayout
@@ -22,16 +20,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            style="@style/style_text_view"
             android:text="@string/role" />
 
         <EditText
             android:id="@+id/roleET"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            style="@style/style_edit_text"
             android:hint="@string/enterRole" />
     </LinearLayout>
 
@@ -42,18 +36,14 @@
 
         <Button
             android:id="@+id/addRoleBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/style_button"
             android:layout_columnWeight="1"
-            android:layout_margin="5dp"
             android:text="@string/addRole" />
 
         <Button
             android:id="@+id/backBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/style_button"
             android:layout_columnWeight="1"
-            android:layout_margin="5dp"
             android:text="@string/back" />
     </GridLayout>
 
